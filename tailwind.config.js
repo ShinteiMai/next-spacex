@@ -17,7 +17,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ["Poppins", "sans-serif"],
+        sans: ["Heebo", "sans-serif"],
       },
       letterSpacing: {
         xl: "0.3em",
@@ -44,14 +44,11 @@ module.exports = {
         178: "42rem",
       },
       colors: {
-        primary: "#64FFDA",
-        secondary: "#0FF6BF",
-        "accents-0": "#323030",
-        "accents-1": "#CACACA",
-        "accents-2": "#E9E9E9",
+        primary: "#2F2F2F",
+        "primary-heavy": "#2E2E2E",
+        secondary: "#FFFFFF",
       },
-      maxWidth: {
-      }
+      maxWidth: {},
     },
   },
 };

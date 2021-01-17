@@ -13,8 +13,8 @@ class MyApp extends App {
     const { Component, pageProps, router } = this.props;
     const spring: Transition = {
       type: "spring",
-      damping: 20,
-      stiffness: 100,
+      damping: 15,
+      stiffness: 65,
       when: "afterChildren",
     };
 
@@ -28,9 +28,9 @@ class MyApp extends App {
                   <motion.div
                     transition={spring}
                     key={router.pathname}
-                    initial={{ x: 300, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -300, opacity: 0 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
                     id="page-transition"
                   >
                     <Component {...pageProps} key={router.pathname} />
@@ -50,8 +50,8 @@ class MyApp extends App {
               body {
                 margin: 0;
                 padding: 0;
-                background: #323030;
-                color: #cacaca;
+                background: #ffffff;
+                color: #2f2f2f;
               }
             `}
           </style>
