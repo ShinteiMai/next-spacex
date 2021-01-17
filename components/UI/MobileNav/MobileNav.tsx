@@ -54,15 +54,6 @@ const toggleAnimation = {
       restDelta: 2,
     },
   }),
-  closed: {
-    clipPath: "circle(0px at 0px 0px)",
-    transition: {
-      delay: 0.5,
-      type: "spring",
-      stiffness: 400,
-      damping: 40,
-    },
-  },
 };
 
 const MobileNav = ({ className, "data-testid": testId }: Props) => {
@@ -79,9 +70,11 @@ const MobileNav = ({ className, "data-testid": testId }: Props) => {
             <Image src="/images/logo.png" width={256} height={32} />
           </div>
         </div>
-
         <motion.div
-          className="h-screen w-full bg-opacity-80 backdrop-blur bg-white block"
+          className={clsx("w-full bg-opacity-80 backdrop-blur bg-white block", {
+            "h-screen": isOpen,
+            "h-0": !isOpen,
+          })}
           variants={toggleAnimation}
         >
           <nav
