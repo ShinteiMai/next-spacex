@@ -74,6 +74,7 @@ const MobileNav = ({ className, "data-testid": testId }: Props) => {
           className={clsx("w-full bg-opacity-80 backdrop-blur bg-white block", {
             "h-screen": isOpen,
             "h-0": !isOpen,
+            hidden: !isOpen,
           })}
           variants={toggleAnimation}
         >
