@@ -82,7 +82,10 @@ const MobileNav = ({ className, "data-testid": testId }: Props) => {
             data-testid={testId || "navbar"}
             className="flex justify-between items-center flex-col md:flex-row"
           >
-            <div className="flex flex-col md:flex-row mt-8 md:mt-0">
+            <div
+              className="flex flex-col md:flex-row mt-8 md:mt-0"
+              onClick={() => toggleIsOpen()}
+            >
               <TextLink
                 className="mr-0 md:mr-8 mb-5 md:mb-0 uppercase font-bold text-sm"
                 href="/"
