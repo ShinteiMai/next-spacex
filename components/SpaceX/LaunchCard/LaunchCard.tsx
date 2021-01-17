@@ -27,13 +27,16 @@ const LaunchCard = ({ className, "data-testid": testId, launch }: Props) => {
         className
       )}
     >
-      <div className="text-center mr-8 w-48">
-        <img
-          src={launch.links.patch.large || "/images/patch.png"}
-          width={156}
-          height={156}
-          alt={launch.name || "launch"}
-        />
+      <div className="text-center mr-0 md:mr-8 w-full md:w-48 mb-4">
+        <div className="flex items-center justify-center md:inline-block">
+          <img
+            src={launch.links.patch.large || "/images/patch.png"}
+            width={156}
+            height={156}
+            alt={launch.name || "launch"}
+          />
+        </div>
+
         <p className="font-medium text-lg md:text-xl">{`${date.toLocaleString(
           "default",
           {
@@ -41,16 +44,16 @@ const LaunchCard = ({ className, "data-testid": testId, launch }: Props) => {
           }
         )}, ${date.getFullYear()}`}</p>
       </div>
-      <div>
-        <h1
-          onClick={() => router.push(`/launches/${launch.id}`)}
-          className="font-medium text-2xl md:text-4xl cursor-pointer transform hover:opacity-75 hover:-translate-y-1 transition-all duration-200"
-        >
-          {launch.name}
-          <span className="font-medium text-lg md:text-2xl opacity-50 ml-5">
+      <div className="text-center md:text-left">
+        <div className="flex items-center justify-center " onClick={() => router.push(`/launches/${launch.id}`)}>
+          <h1 className="font-medium text-3xl md:text-4xl cursor-pointer transform hover:opacity-75 hover:-translate-y-1 transition-all duration-200">
+            {launch.name}
+          </h1>
+
+          <span className="font-medium text-xl md:text-2xl opacity-50 ml-5">
             {rocketData?.data.name}
           </span>
-        </h1>
+        </div>
         <div className="mt-2">
           {!!launch.links.reddit.campaign ? (
             <TextLink

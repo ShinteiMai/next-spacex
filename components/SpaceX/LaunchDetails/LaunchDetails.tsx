@@ -32,7 +32,7 @@ const LaunchDetails = ({ className, "data-testid": testId, launch }: Props) => {
       <div className="top-0 left-0 absolute bg-black bg-opacity-50 z-20 h-screen w-full" />
       <img
         className="top-0 left-0 absolute object-cover h-screen w-full"
-        src={launch.links.flickr[0] || "/images/placeholder.jpg"}
+        src={launch.links.flickr.original[0] || "/images/placeholder.jpg"}
         alt={`launch-img-${launch.name}`}
       />
       <div className="absolute right-0 md:right-24 top-12 md:top-32 z-30 ">
@@ -108,9 +108,10 @@ const LaunchDetails = ({ className, "data-testid": testId, launch }: Props) => {
           </h2>
 
           <div className="mt-6">
-            <p className="text-white">{launch.details}</p>
+            <p className="text-white">
+              {launch.details || "No description provided"}
+            </p>
           </div>
-
         </div>
       </div>
     </div>
