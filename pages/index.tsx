@@ -1,61 +1,84 @@
-import { SiGithub } from "react-icons/si";
 import { GetServerSideProps } from "next";
-import { QueryClient } from "react-query";
+import React from "react";
+import { QueryClient, useInfiniteQuery, useQuery } from "react-query";
 import fromApi from "@api/fromApi";
-import { prefetchQuery, useQueryWrapper } from "@api/query";
 import { dehydrate } from "react-query/hydration";
-import { TLaunches } from "@api/returnTypes";
+import { TLaunches, TQueryLaunches } from "@api/returnTypes";
 import { DotLoader } from "react-spinners";
+import { LaunchCard, LaunchDetails } from "@components/SpaceX";
+import { Waypoint } from "react-waypoint";
 
+const QUERY_LIMIT = 5;
 const IndexPage = () => {
-  const { data, isLoading } = useQueryWrapper<TLaunches>(
-    "launches",
-    fromApi.getLaunches
+  const {
+    data: upcomingLaunchData,
+    isLoading: isUpcomingLaunchesLoading,
+  } = useQuery<TLaunches>(["/launches"], fromApi.getUpcomingLaunches);
+  const {
+    data: launchesData,
+    isLoading,
+    isFetching,
+    isFetchingNextPage,
+    fetchNextPage,
+    hasNextPage,
+  } = useInfiniteQuery<TQueryLaunches>(
+    "/launches/query",
+    async ({ pageParam }) =>
+      fromApi.getQueryLaunches("desc", QUERY_LIMIT, pageParam),
+    {
+      getNextPageParam: (lastPage) => lastPage.data.nextPage,
+    }
   );
+
   return (
-    <div className="">
-      <div className="flex mx-auto items-center justify-center">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl text-accents-2">
-          next-tailwind-boilerplate
-        </h1>
-        <div className="ml-4">
-          <SiGithub size={32} />
-        </div>
+    <div className="mx-auto">
+      <div>
+        <p className="text-xl md:text-2xl font-medium uppercase mb-3">
+          Upcoming Launch
+        </p>
+        {!isUpcomingLaunchesLoading && upcomingLaunchData ? (
+          <LaunchDetails launch={upcomingLaunchData.data[0]} />
+        ) : null}
       </div>
 
-      <p className="mt-3 text-sm text-center text-accents-1">
-        A battery-packaged boilerplate for Next.js + Tailwind integrated with
-        TypeScript support and full unit & integration testing modules such as
-        react-testing-library and Cypress.
-      </p>
-
-      {!isLoading && !!data ? (
-        data.data.map((launch) => (
-          <div className="mb-2 shadow-lg px-8 py-2 transform hover:-translate-y-2 transition-all duration-150">
-            {launch.links.patch.small && (
-              <img
-                src={launch.links.patch.small}
-                width={75}
-                height={75}
-                alt={launch.name || "launch"}
-              />
-            )}
-            <h1 className="text-lg text-accents-2">{launch.name}</h1>
-            <p className="text-sm text-accents-1">{launch.details}</p>
-          </div>
-        ))
-      ) : (
-        <div className="mx-auto text-center flex items-center justify-center mt-8">
-          <DotLoader color="#64FFDA" />
+      <div>
+        <p className="text-xl md:text-2xl font-medium uppercase mb-3">
+          Launches
+        </p>
+        {!isLoading && launchesData ? (
+          launchesData.pages.map((page, i) => (
+            <React.Fragment key={i}>
+              {page.data.docs.map((launch) => (
+                <LaunchCard className="mb-4"  key={launch.id} launch={launch} />
+              ))}
+            </React.Fragment>
+          ))
+        ) : (
+          <DotLoader />
+        )}
+      </div>
+      <div className="py-24 mx-auto text-center">
+        <Waypoint
+          onEnter={() => {
+            if (hasNextPage && !isFetchingNextPage) {
+              fetchNextPage();
+            }
+          }}
+        />
+        <div className="mx-auto">
+          {isFetching ? <DotLoader size={24} /> : null}
         </div>
-      )}
+      </div>
     </div>
   );
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const queryClient = new QueryClient();
-  await prefetchQuery(queryClient, "launches", fromApi.getLaunches());
+  await queryClient.prefetchQuery(
+    ["/launches/query", 1],
+    await fromApi.getQueryLaunches("desc", QUERY_LIMIT, 1)
+  );
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

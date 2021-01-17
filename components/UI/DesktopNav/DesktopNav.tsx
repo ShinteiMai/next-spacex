@@ -1,6 +1,5 @@
 import React from "react";
 import { TComponent } from "@components/types";
-import clsx from "clsx";
 import Image from "next/image";
 import TextLink from "../TextLink";
 import { useRouter } from "next/router";

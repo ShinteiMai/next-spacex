@@ -60,7 +60,9 @@ module.exports = {
         "primary-heavy": "#2E2E2E",
         secondary: "#FFFFFF",
       },
-      maxWidth: {},
+      backgroundImage: {
+        "launch-placeholder": "url('/images/placeholder.jpg')"
+      }
     },
   },
   variants: {

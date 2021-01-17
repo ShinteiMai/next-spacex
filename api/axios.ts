@@ -3,7 +3,7 @@ import { HTTP_METHODS } from "@utils/types";
 import Axios from "axios";
 
 const axios = Axios.create({
-  baseURL: "https://api.spacexdata.com/v4"
+  baseURL: "https://api.spacexdata.com/v4",
 });
 
 export const createApiRequest = async (
