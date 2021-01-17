@@ -66,7 +66,7 @@ const MobileNav = ({ className, "data-testid": testId }: Props) => {
             <MenuToggle toggle={() => toggleIsOpen()} />
           </div>
 
-          <div className="flex w-full items-center justify-center ml-8">
+          <div className="flex w-full items-center justify-center ml-16">
             <Image src="/images/logo.png" width={256} height={32} />
           </div>
         </div>
@@ -74,6 +74,7 @@ const MobileNav = ({ className, "data-testid": testId }: Props) => {
           className={clsx("w-full bg-opacity-80 backdrop-blur bg-white block", {
             "h-screen": isOpen,
             "h-0": !isOpen,
+            hidden: !isOpen,
           })}
           variants={toggleAnimation}
         >
@@ -81,7 +82,10 @@ const MobileNav = ({ className, "data-testid": testId }: Props) => {
             data-testid={testId || "navbar"}
             className="flex justify-between items-center flex-col md:flex-row"
           >
-            <div className="flex flex-col md:flex-row mt-8 md:mt-0">
+            <div
+              className="flex flex-col md:flex-row mt-8 md:mt-0"
+              onClick={() => toggleIsOpen()}
+            >
               <TextLink
                 className="mr-0 md:mr-8 mb-5 md:mb-0 uppercase font-bold text-sm"
                 href="/"
