@@ -13,9 +13,8 @@ class MyApp extends App {
     const { Component, pageProps, router } = this.props;
     const spring: Transition = {
       type: "spring",
-      damping: 15,
-      stiffness: 65,
       when: "afterChildren",
+      duration: 1,
     };
 
     return (

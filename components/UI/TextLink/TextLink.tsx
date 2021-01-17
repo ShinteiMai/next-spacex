@@ -32,7 +32,10 @@ const TextLink = ({
       ) : (
         <span
           data-testid={testId || "text-link"}
-          className={clsx("no-underline cursor-pointer", className)}
+          className={clsx(
+            "inline-block no-underline cursor-pointer transform hover:-translate-y-1 transition-all duration-300",
+            className
+          )}
         >
           {children}
         </span>
