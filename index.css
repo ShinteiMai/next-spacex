@@ -3,32 +3,32 @@
 @import "tailwindcss/utilities";
 
 @font-face {
-    font-family: "Poppins";
-    src: url("/fonts/poppins/Poppins-Regular.ttf");
+    font-family: "Heebo";
+    src: url("/fonts/heebo/Heebo-Regular.ttf");
     font-style: normal;
     font-weight: 400;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Poppins";
-    src: url("/fonts/poppins/Poppins-Medium.ttf");
+    font-family: "Heebo";
+    src: url("/fonts/heebo/Heebo-Medium.ttf");
     font-style: normal;
     font-weight: 500;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Poppins";
-    src: url("/fonts/poppins/Poppins-SemiBold.ttf");
+    font-family: "Heebo";
+    src: url("/fonts/heebo/Heebo-SemiBold.ttf");
     font-style: normal;
     font-weight: 600;
     font-display: swap;
 }
 
 @font-face {
-    font-family: "Poppins";
-    src: url("/fonts/poppins/Poppins-Bold.ttf");
+    font-family: "Heebo";
+    src: url("/fonts/heebo/Heebo-Bold.ttf");
     font-style: normal;
     font-weight: 700;
     font-display: swap;
@@ -36,7 +36,7 @@
 
 @font-face {
     font-family: "Poppins";
-    src: url("/fonts/poppins/Poppins-ExtraBold.ttf");
+    src: url("/fonts/heebo/Heebo-ExtraBold.ttf");
     font-style: normal;
     font-weight: 800;
     font-display: swap;
@@ -44,7 +44,7 @@
 
 @font-face {
     font-family: "Poppins";
-    src: url("/fonts/poppins/Poppins-Black.ttf");
+    src: url("/fonts/heebo/Heebo-Black.ttf");
     font-style: normal;
     font-weight: 900;
     font-display: swap;

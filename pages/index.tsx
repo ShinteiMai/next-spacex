@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { SiGithub } from "react-icons/si";
 import { GetServerSideProps } from "next";
 import { QueryClient } from "react-query";
@@ -30,11 +29,6 @@ const IndexPage = () => {
         react-testing-library and Cypress.
       </p>
 
-      <div className="mx-auto mt-8 flex justify-around items-center max-w-sm">
-        <Image src="/images/react.png" width={50} height={50} />
-        <Image src="/images/tailwind.png" width={50} height={35} />
-        <Image src="/images/typescript.png" width={50} height={50} />
-      </div>
       {!isLoading && !!data ? (
         data.data.map((launch) => (
           <div className="mb-2 shadow-lg px-8 py-2 transform hover:-translate-y-2 transition-all duration-150">
@@ -52,7 +46,7 @@ const IndexPage = () => {
         ))
       ) : (
         <div className="mx-auto text-center flex items-center justify-center mt-8">
-          <DotLoader color="#64FFDA"  />
+          <DotLoader color="#64FFDA" />
         </div>
       )}
     </div>
