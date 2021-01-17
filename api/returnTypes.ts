@@ -71,7 +71,7 @@ export interface ILaunchpad {
   status: boolean;
   id: string;
 }
-
+export interface TRockets extends TResponse<IRocket[]> {}
 export interface TRocket extends TResponse<IRocket> {}
 export interface IRocket {
   height: {

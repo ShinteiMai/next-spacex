@@ -7,6 +7,7 @@ import { TLaunches, TQueryLaunches } from "@api/returnTypes";
 import { DotLoader } from "react-spinners";
 import { LaunchCard, LaunchDetails } from "@components/SpaceX";
 import { Waypoint } from "react-waypoint";
+import { motion } from "framer-motion";
 
 const QUERY_LIMIT = 5;
 const IndexPage = () => {
@@ -30,6 +31,14 @@ const IndexPage = () => {
     }
   );
 
+  if (isLoading && isUpcomingLaunchesLoading) {
+    return (
+      <div className="text-center mx-auto mt-24">
+        <DotLoader size={32} />
+      </div>
+    );
+  }
+
   return (
     <div className="mx-auto">
       <div>
@@ -37,7 +46,17 @@ const IndexPage = () => {
           Upcoming Launch
         </p>
         {!isUpcomingLaunchesLoading && upcomingLaunchData ? (
-          <LaunchDetails launch={upcomingLaunchData.data[0]} />
+          <motion.div
+            transition={{
+              type: "spring",
+              when: "afterChildren",
+              duration: 1,
+            }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <LaunchDetails launch={upcomingLaunchData.data[0]} />
+          </motion.div>
         ) : null}
       </div>
 
@@ -49,7 +68,7 @@ const IndexPage = () => {
           launchesData.pages.map((page, i) => (
             <React.Fragment key={i}>
               {page.data.docs.map((launch) => (
-                <LaunchCard className="mb-4"  key={launch.id} launch={launch} />
+                <LaunchCard key={launch.id} className="mb-4" launch={launch} />
               ))}
             </React.Fragment>
           ))

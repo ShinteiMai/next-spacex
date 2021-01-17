@@ -45,10 +45,11 @@ const LaunchCard = ({ className, "data-testid": testId, launch }: Props) => {
         )}, ${date.getFullYear()}`}</p>
       </div>
       <div className="text-center md:text-left">
-        <div className="flex items-center justify-center " onClick={() => router.push(`/launches/${launch.id}`)}>
-          <h1 className="font-medium text-3xl md:text-4xl cursor-pointer transform hover:opacity-75 hover:-translate-y-1 transition-all duration-200">
-            {launch.name}
-          </h1>
+        <div
+          className="flex items-center justify-center md:justify-start cursor-pointer transform hover:opacity-75 hover:-translate-y-1 transition-all duration-200"
+          onClick={() => router.push(`/launches/${launch.id}`)}
+        >
+          <h1 className="font-medium text-3xl md:text-4xl ">{launch.name}</h1>
 
           <span className="font-medium text-xl md:text-2xl opacity-50 ml-5">
             {rocketData?.data.name}

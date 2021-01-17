@@ -66,7 +66,7 @@ const MobileNav = ({ className, "data-testid": testId }: Props) => {
             <MenuToggle toggle={() => toggleIsOpen()} />
           </div>
 
-          <div className="flex w-full items-center justify-center ml-8">
+          <div className="flex w-full items-center justify-center ml-16">
             <Image src="/images/logo.png" width={256} height={32} />
           </div>
         </div>
