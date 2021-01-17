@@ -13,7 +13,7 @@ const IndexPage = () => {
     fromApi.getLaunches
   );
   return (
-    <div className="mt-24">
+    <div className="">
       <div className="flex mx-auto items-center justify-center">
         <h1 className="text-2xl md:text-3xl lg:text-4xl text-accents-2">
           next-tailwind-boilerplate

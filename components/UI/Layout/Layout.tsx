@@ -1,7 +1,8 @@
 import React from "react";
 import Head from "next/head";
 import { TComponent } from "@components/types";
-import Navbar from "../Navbar";
+import DesktopNav from "../DesktopNav";
+import MobileNav from "../MobileNav";
 
 interface Props extends TComponent {
   title?: string;
@@ -30,7 +31,7 @@ const Layout = ({ children, title }: Props) => {
           property="og:description"
           content="A web app about SpaceX built with Next.js, TypeScript, Tailwind CSS and react-query supported with SpaceX-API. Track SpaceX launches, view rockets, and visualize Starlink positions around the globe."
         />
-        <meta property="og:image" content="/images/logo.png" />
+        <meta property="og:image" content="/images/favicon.jpg" />
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta
@@ -42,7 +43,7 @@ const Layout = ({ children, title }: Props) => {
           property="twitter:description"
           content="A web app about SpaceX built with Next.js, TypeScript, Tailwind CSS and react-query supported with SpaceX-API. Track SpaceX launches, view rockets, and visualize Starlink positions around the globe."
         />
-        <meta property="twitter:image" content="/images/logo.png" />
+        <meta property="twitter:image" content="/images/favicon.jpg" />
 
         {/* Fonts */}
         <link
@@ -82,9 +83,13 @@ const Layout = ({ children, title }: Props) => {
           crossOrigin=""
         />
       </Head>
-      <div className="max-w-3xl mx-auto">
-        <Navbar />
-        {children}
+      <div className="">
+        <MobileNav className="block md:hidden" />
+        <DesktopNav className="hidden md:block" />
+
+        <div className="mx-auto px-4 sm:px-8 md:px-12 lg:px-24 pt-24">
+          <main>{children}</main>
+        </div>
       </div>
     </div>
   );
