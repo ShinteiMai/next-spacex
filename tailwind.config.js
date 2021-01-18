@@ -54,6 +54,10 @@ module.exports = {
         154: "36rem",
         166: "39rem",
         178: "42rem",
+        "screen-1/4": "25vh",
+        "screen-1/2": "50vh",
+        "screen-3/4": "75vh",
+        "screen-5/6": "83vh",
       },
       colors: {
         primary: "#2F2F2F",
@@ -61,8 +65,8 @@ module.exports = {
         secondary: "#FFFFFF",
       },
       backgroundImage: {
-        "launch-placeholder": "url('/images/placeholder.jpg')"
-      }
+        "launch-placeholder": "url('/images/placeholder.jpg')",
+      },
     },
   },
   variants: {

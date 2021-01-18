@@ -26,12 +26,12 @@ const LaunchDetails = ({ className, "data-testid": testId, launch }: Props) => {
   const date = new Date(launch.dateUtc);
   return (
     <div
-      className={clsx("relative h-screen w-full mb-24", className)}
+      className={clsx("relative h-screen-5/6 w-full mb-24", className)}
       data-testid={testId || "launch-details"}
     >
-      <div className="top-0 left-0 absolute bg-black bg-opacity-50 z-20 h-screen w-full" />
+      <div className="top-0 left-0 absolute bg-black bg-opacity-50 z-20 h-screen-5/6 w-full" />
       <img
-        className="top-0 left-0 absolute object-cover h-screen w-full"
+        className="top-0 left-0 absolute object-cover h-screen-5/6 w-full"
         src={launch.links.flickr.original[0] || "/images/placeholder.jpg"}
         alt={`launch-img-${launch.name}`}
       />

@@ -8,6 +8,14 @@ interface Props extends TComponent {
   title?: string;
 }
 
+const metaTags = {
+  url: "https://spacex.stevenhansel.com",
+  title: "Next SpaceX",
+  description:
+    "A SpaceX web app to track SpaceX launches, view rockets, and visualize Starlink positions around the globe.",
+  thumbnail: "/images/favicon.jpg",
+};
+
 const Layout = ({ children, title }: Props) => {
   return (
     <div data-testid="layout">
@@ -17,33 +25,21 @@ const Layout = ({ children, title }: Props) => {
 
         {/* SEO & Meta Tags */}
         <title>{title && `${title} | `}next-spacex</title>
-        <link rel="shortcut icon" href="/images/favicon.jpg" />
-        <meta name="title" content="next-spacex" />
-        <meta
-          name="description"
-          content="A web app about SpaceX built with Next.js, TypeScript, Tailwind CSS and react-query supported with SpaceX-API. Track SpaceX launches, view rockets, and visualize Starlink positions around the globe."
-        />
+        <link rel="shortcut icon" href={metaTags.thumbnail} />
+        <meta name="title" content={metaTags.title} />
+        <meta name="description" content={metaTags.description} />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://spacex.stevenhansel.com/" />
-        <meta property="og:title" content="next-spacex" />
-        <meta
-          property="og:description"
-          content="A web app about SpaceX built with Next.js, TypeScript, Tailwind CSS and react-query supported with SpaceX-API. Track SpaceX launches, view rockets, and visualize Starlink positions around the globe."
-        />
-        <meta property="og:image" content="/images/favicon.jpg" />
+        <meta property="og:url" content={metaTags.url} />
+        <meta property="og:title" content={metaTags.title} />
+        <meta property="og:description" content={metaTags.description} />
+        <meta property="og:image" content={metaTags.thumbnail} />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content="https://spacex.stevenhansel.com/"
-        />
-        <meta property="twitter:title" content="next-spacex" />
-        <meta
-          property="twitter:description"
-          content="A web app about SpaceX built with Next.js, TypeScript, Tailwind CSS and react-query supported with SpaceX-API. Track SpaceX launches, view rockets, and visualize Starlink positions around the globe."
-        />
-        <meta property="twitter:image" content="/images/favicon.jpg" />
+        <meta property="twitter:url" content={metaTags.url} />
+        <meta property="twitter:title" content={metaTags.title} />
+        <meta property="twitter:description" content={metaTags.description} />
+        <meta property="twitter:image" content={metaTags.thumbnail} />
 
         {/* Fonts */}
         <link
