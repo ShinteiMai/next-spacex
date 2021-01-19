@@ -25,12 +25,12 @@ const LaunchDetailsPage = () => {
 
   return (
     <div className="mt-3">
-      <p
+      <span
         onClick={() => router.push("/")}
         className="uppercase font-medium text-xl mb-1 cursor-pointer transition-all duration-150 hover:opacity-75"
       >
         Go Back
-      </p>
+      </span>
       {!isLoading && data ? (
         <LaunchDetails launch={data.data} />
       ) : (

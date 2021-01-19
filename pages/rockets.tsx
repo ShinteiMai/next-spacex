@@ -1,6 +1,6 @@
 import fromApi from "@api/fromApi";
 import { TRockets } from "@api/returnTypes";
-import RocketCard from "@components/SpaceX/RocketCard/RocketCard";
+import { RocketCard } from "@components/SpaceX";
 import { GetServerSideProps } from "next";
 import { QueryClient, useQuery } from "react-query";
 import { dehydrate } from "react-query/hydration";

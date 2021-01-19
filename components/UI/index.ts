@@ -4,3 +4,4 @@ export { default as Layout } from "./Layout";
 export { default as TextLink } from "./TextLink";
 export { default as MobileNav } from "./MobileNav";
 export { default as DesktopNav } from "./DesktopNav";
+export { default as Underline } from "./Underline";
