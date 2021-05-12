@@ -26,7 +26,7 @@
     "jest": "^26.6.3",
     "lodash-humps-ts": "^0.0.6",
     "next": "latest",
-    "postcss": "^8.2.4",
+    "postcss": "^8.2.10",
     "postcss-import": "^14.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
